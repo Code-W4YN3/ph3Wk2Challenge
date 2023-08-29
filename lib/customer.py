@@ -36,12 +36,19 @@ class Customer:
     def get_full_name(self):
         return f"{self._given_name} {self._family_name}"
     
+    def restaurant(name):
+        rest_list = []
+        for i in Review.all_reviews():
+            if(Review.customer(i) == name):
+                rest_list.append(Review.restaurant(i))
+        return list(set(rest_list))
+                
+    
     def my_reviews(self):
         for i in Review.all_reviews():
-            if(Review.customer(i) == Customer.get_full_name(i)):
-                self.reviews.append(Review.restaurant(i))
-        rev_set = set(self.reviews)
-        return list(rev_set)
+            if(Review.customer(i) == Customer.get_full_name(self)):
+                Customer.get_my_reviews(self).append(Review.restaurant(i))
+        return len(self.reviews)
     
     def get_my_reviews(self):
         return self.reviews

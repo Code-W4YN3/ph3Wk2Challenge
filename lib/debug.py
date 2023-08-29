@@ -57,10 +57,16 @@ if __name__ == '__main__':
             unique_cust.append(Review.customer(i))
     print(list(set(unique_cust)))
 
-   
+    print(" ")
+    print(f"Restaurants reviewed by {Customer.get_full_name(brian)}: ")
+    print(Customer.restaurant(Customer.get_full_name(brian)))
+
+    print(" "):
+    print("Add review:")
 
     print(" ")
-    print("Customer review count: ")
+    print(f"{Customer.get_full_name(brian)}'s review count: ")
+    print(Customer.my_reviews(brian))
 
     print(" ")
     given_name = "Chris"

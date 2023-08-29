@@ -11,6 +11,9 @@ class Review:
         self.review = review
         Review.all_rev.append(self)
 
+    def rating(self):
+        return self.review
+
     def customer(self):
         return self._customer
 

@@ -1,3 +1,5 @@
+from review import Review
+
 class Customer:
     all_cus = []
 
@@ -34,8 +36,15 @@ class Customer:
     def get_full_name(self):
         return f"{self._given_name} {self._family_name}"
     
-    def my_reviews(self, review):
-        self.reviews.append(review)
+    def my_reviews(self):
+        for i in Review.all_reviews():
+            if(Review.customer(i) == Customer.get_full_name(i)):
+                self.reviews.append(Review.restaurant(i))
+        rev_set = set(self.reviews)
+        return list(rev_set)
+    
+    def get_my_reviews(self):
+        return self.reviews
 
     def count_my_reviews(self):
         return len(self.reviews)

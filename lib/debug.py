@@ -15,22 +15,49 @@ if __name__ == '__main__':
     
     review1 = Review("Brian", "B", "KFC", 7)
     review2 = Review("Chris", "C", "StarBucks", 9)
-    review3 = Review("Brian", "B", "KFC", 4)
-    review4 = Review("Chris", "C", "StarBucks", 10)
+    review3 = Review("Brian", "B", "StarBucks", 4)
+    review4 = Review("Chris", "C", "KFC", 10)
     
-    print("Customers: ")
+    print("Customer: ")
+    print(f"customer given_name: {Customer.given_name(brian)}")
+    print(f"customer family_name: {Customer.family_name(brian)}")
+    print(f"customer full_name: {Customer.get_full_name(brian)}")
+    print("customer all: ")
     for i in Customer.all_customer():
         print(Customer.get_full_name(i))
-    
-    print(" ")
-    print("Restaurants: ")
-    for i in Restaurant.all_rest():
-        print(i._name)
 
     print(" ")
-    print("Reviews:")
+    print("Restaurant: ")
+    print(f"restaurant name: {Restaurant.get_name(kfc)}")
+    print("restaurant all: ")
+    for i in Restaurant.all_rest():
+        print(Restaurant.get_name(i))
+
+    print(" ")
+    print("Review: ")
+    print(f"review rating: {Review.restaurant(review1)} - {Review.rating(review1)}")
+    print("review all: ")
     for i in Review.all_reviews():
-        print(f"{i._customer}: {i._restaurant} - {i.review}")
+        print(f"{Review.customer(i)}: {Review.restaurant(i)} - {Review.rating(i)}")
+
+    print(" ")
+    print(f"review customer: {Review.customer(review1)}")
+    print(f"review restaurant: {Review.restaurant(review1)}")
+
+    print(" ")
+    rest_name = "KFC"
+    print(f"Restaurant Reviews for {rest_name}: ")
+    for i in Review.all_reviews():
+        if(Review.restaurant(i) == rest_name):
+            print(f"{Review.customer(i)}: {Review.rating(i)}")
+    print(f"Customers who reviewed {rest_name}: ")
+    unique_cust = []
+    for i in Review.all_reviews():
+        if(Review.restaurant(i) == rest_name):
+            unique_cust.append(Review.customer(i))
+    print(list(set(unique_cust)))
+
+   
 
     print(" ")
     print("Customer review count: ")

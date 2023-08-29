@@ -61,7 +61,7 @@ if __name__ == '__main__':
     print(f"Restaurants reviewed by {Customer.get_full_name(brian)}: ")
     print(Customer.restaurant(Customer.get_full_name(brian)))
 
-    print(" "):
+    print(" ")
     print("Add review:")
 
     print(" ")

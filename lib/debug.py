@@ -33,9 +33,17 @@ if __name__ == '__main__':
         print(f"{i._customer}: {i._restaurant} - {i.review}")
 
     print(" ")
+    print("Customer review count: ")
+
+    print(" ")
     given_name = "Chris"
     print(f"Customer names similar to: {given_name}: ")
     print(Customer.find_all_by_given_name(given_name))
+
+    print(" ")
+    cust_name = "Brian B"
+    print(f"Find customer: {cust_name}")
+    print(Customer.find_by_name(cust_name))
     
 
     print(" ")

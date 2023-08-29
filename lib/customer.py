@@ -1,5 +1,3 @@
-from review import Review
-
 class Customer:
     all_cus = []
 
@@ -10,16 +8,16 @@ class Customer:
     @classmethod
     def find_by_name(cls,name):
         for i in cls.all_cus:
-            if i.get_full_name == name:
-                return i 
-            return None 
+            if Customer.get_full_name(i) == name:
+                return (Customer.get_full_name(i))
+        return None 
         
     @classmethod
     def find_all_by_given_name(cls,name):
         for i in cls.all_cus:
-            if i.given_name == name:
-                print (i)
-                return i
+            if i._given_name == name:
+                return (f"{i._given_name} {i._family_name}")
+        return None
 
     def __init__(self, given_name, family_name):
         self._given_name = given_name
